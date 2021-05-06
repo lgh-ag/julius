@@ -5,8 +5,8 @@
   </head>
   <body>
     <!-- <{tag} {attribut}>{content}</{tag}> -->
-    <h1>Ferien-Countdown :)</h1>
-    <p id="Ferien-CD">noch 1 Woche(n), 2 Tag(e), 4 Stunde(n), 3 Minute(n), 2 Sekunde(n)</p>
+    <h1>Ferien-Countdown</h1>
+    <p id="Ferien-CD">moin meista!</p>
     <h3 id="ferienArt" >bis zu den Osterferien!</h3>
 
   <select id="ferienAuswahl">
@@ -18,7 +18,7 @@
   <option value ="weihnachtsferien-2022-TH"> Weihnachtsferien🎄</option>
   </select>
 
-    <br>
+    <br><br>
     <table border="4px">
       <thead>
         <tr>
@@ -126,11 +126,10 @@
       
       function selectChange() {
         ferienDate = Date.parse(_.where(obj, {"slug": select.value})[0].start);
-        document.getElementById("ferienArt").innerHTML = "bis zu den " + _.where(obj, {"slug": select.value})[0].name + "! 📅";
-
+        var ferien = _.where(obj, {"slug" : select.value})[0].name;
+        document.getElementById("ferienArt").innerHTML = "bis zu den " + ferien.slice(0, 1).toUpperCase () + ferien.slice(1) + "! 📅";
+        getSeconds();
       }
-
-     
 
       select.onchange = selectChange; 
     </script>
